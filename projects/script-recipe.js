@@ -1,6 +1,5 @@
-import RecipeRandomizer from "./RecipeRandomizer/RecipeRandomizer.js"
-import recipes from "./RecipeRandomizer/recipes.js"
-import "./style.css"
+import RecipeRandomizer from "./RecipeRandomizer.js"
+import recipes from "./recipes.js"
 
 const mainContent = document.querySelector(".mainContent")
 mainContent.style.display = "block"
