@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Recipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        body{ background-color: rgb(0, 0, 0); }
+    </style>
+</head>
+<body>
+    <div class="mainContent">
+
+        <div class="header">
+        <ul>
+            <li><button class="navigationButton" id="homeButton">HOME</button></li>
+            <li><button class="navigationButton" id="animationButton">PROJECTS</button></li>
+            <li><button class="navigationButton" id="photographyButton">PHOTOGRAPHY</button></li>
+            <li><button class="navigationButton" id="blogButton">BLOG</button></li>
+            <li><button class="navigationButton" id="contactButton">CONTACT</button></li>
+            <li><button class="navigationButton" id="aboutButton">ABOUT</button></li>
+        </ul>
+    </div>
+
+    <div class="mobileHeader">
+        <div class="alwaysOnMobileButtonsListDiv">
+            <ul class="alwaysOnMobileButtonsList">
+                <li><button class="navigationButton" id="homeButtonMobile">HOME</button></li>
+                <li><button class="navigationButton" id="animationButtonMobile">PROJECTS</button></li>
+                <li><button class="navigationButton" id="photographyButtonMobile">PHOTOGRAPHY</button></li>
+            </ul>
+            <button id="hamburgerButton">☰</button>
+        </div>
+        
+        <div class="mobileButtonsListDiv">
+            <ul class="mobileButtonsList">
+                <li><button class="navigationButton" id="blogButtonMobile">BLOG</button></li>
+                <li><button class="navigationButton" id="contactButtonMobile">CONTACT</button></li>
+                <li><button class="navigationButton" id="aboutButtonMobile">ABOUT</button></li>
+            </ul>
+        </div>
+        
+    </div>
+
+        <div class="recipeContent" >
+            <div class="innerDiv">
+
+                <div id="recipePageTitle">
+                    <span> What's For dinner?</span>
+                </div>
+
+                <div id="recipePageDescription">
+                    <span>
+                        Sick of figuring out what to eat? 
+                        Click the button below to randomly pick from a library of recipes.
+                    </span>
+                </div>
+
+                <div id="randomButtonWrapper">
+                    <button id="randomButton">Generate</button>
+                </div>
+                <div class="recipeOutputDiv" id = recipeOutput style="visibility: hidden">
+                    <div>
+                        <div id="recipeOutputHeader">
+                            <div id="recipeOutputTitleDescriptionWrapper">
+                                <div id = "recipeTitle">
+                                    Recipe Title
+                                </div>
+                                <div id = "recipeDescription">
+                                    Recipe Description
+                                </div>
+                            </div>
+                            
+                            <div id="recipeImage">
+                                image
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+
+                    <div id="recipeIngredientSection">
+                        <div id="ingredientSectionHeader">
+                            <div id="ingredientSectionTitle">
+                                Ingredients
+                            </div>
+                        </div>
+
+                        <div id="ingredientSectionContent">
+                            <div id = "recipeIngredients">
+                                Ingredient List
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- 
+
+            <div class="recipeOutputDiv">
+                
+                <div id="recipeIngredientSection">
+                    <div id="ingredientSectionHeader">
+                        <div id="ingredientSectionTitle">Ingredients</div>
+                    </div>
+                    <div id="ingredientSectionContent">
+                        <div id = "recipeIngredients">
+                            Ingredient List
+                        </div>
+                    </div>
+                </div>
+                
+            </div> -->
+        </div>
+        
+    
+    </div>
+    <script type="module" src="/script-recipe.js"></script>
+</body>
+</html>
