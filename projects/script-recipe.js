@@ -111,7 +111,7 @@ homeButton.addEventListener("click", () => {
 
 const homeButtonMobile = document.getElementById("homeButtonMobile")
 homeButtonMobile.addEventListener("click", () => {
-    window.location.href="/"
+    window.location.href="../index.html"
 })
 
 // Animation Buttons
