@@ -1121,6 +1121,104 @@ export default [
             "Once veggies have roasted 10 minutes, remove baking sheet from oven. Heat broiler to high or increase oven temperature to 500 degrees. Sprinkle veggies with panko, mozzarella, and Parmesan. Broil (or bake) until panko is golden brown, cheese is melted, and veggies are tender, 3-5 minutes.",
             "Add juice from one lemon half and half the parsley to pot with orzo and toss to combine. Season to taste with salt and pepper. Divide orzo between plates. Top with veggies and chicken. Drizzle with any chicken juices from plate and a squeeze of lemon. Garnish with remaining parsley and serve.",
         ]
-    }
+    },
+    {
+        name: "Spicy Korean Fried Chicken",
+        type: "chicken",
+        description: "chicken and rice",
+        prepTime: "10 minutes",
+        coverImage: "images/comingSoon_HD.jpg",
+        ingredients: [
+            {
+                name: "Chicken Cutlets",
+                amount: "10 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Jasmine Rice",
+                amount: "1/2 cup",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Garlic Powder",
+                amount: "1 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Scallions",
+                amount: "2",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Ginger",
+                amount: "1 thumb",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Baby Lettuce",
+                amount: "1 head",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Radish",
+                amount: "3",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Omsom Korean Spicy Bulgogi Marinade",
+                amount:"2.4 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Shredded Red Cabbage",
+                amount:"4 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "White Wine Vinegar",
+                amount: "5 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Mayonnaise",
+                amount:"4 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Flour",
+                amount:"1/2 cup",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Cornstarch",
+                amount:"2 TBSP cup",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Kosher Salt",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Black Pepper",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Cooking Oil",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Sugar",
+                amount:"1 1/2 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Butter",
+                amount:"2 TBSP",
+                image: "images/tempIcon_01.jpg"
+            }
+        ]
+    },
+
+
 
 ]
