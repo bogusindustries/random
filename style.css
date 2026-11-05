@@ -1,0 +1,2203 @@
+/* clamp(min, preffered, max)*/
+
+* {
+  box-sizing: border-box; /* includes padding/borders inside widths */
+}
+
+/* body.loading{
+    display:none;
+} */
+
+body{
+    background-color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    height: 100%;
+}
+
+
+.mainContent{
+    display: none;
+}
+
+.webgl{
+    position: absolute;
+    top: 0;
+    left: 0;
+    outline: none;
+    z-index: 0;
+
+    width: 100vw;
+    height: 100vh;
+    display: block; /* to remove any inline spacing issues */
+    background: transparent !important;
+}
+
+.loadingContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    z-index: 1;
+}
+
+.loader{
+    height: 20px;
+    width: 250px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.dot{
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.dotnull{
+    animation-name: orbit;
+    /* animation-timing-function: linear; */
+    animation-duration: 6.0s;
+    animation-iteration-count: infinite;
+    position: absolute;
+}
+
+#dot-1{
+    background-color: #ffffff;
+    transform: translate(95px, -30px);
+    height: 60px;
+    width: 60px;
+}
+
+#dot-2{
+    animation-name: orbitScale;
+    animation-duration: 6.0s;
+    animation-iteration-count: infinite;
+    background-color: #595959;
+}
+
+.loader--text{
+    color:#ffffff;
+    position: absolute;
+    top: 300%;
+    left: 0;
+    right: 0;
+    width: 4rem;
+    margin: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.loader--text:after{
+    content:"Loading";
+    font-weight: bold;
+    animation-name: loading-text;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.loader--percent{
+    position: absolute;
+    color:#ffffff;
+    top: 400%;
+    left: 0;
+    right: 0;
+    width: 4rem;
+    margin: auto;
+}
+
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 2vw;
+    color: white;
+    z-index: 2;
+    background-color: black;
+    overflow: visible;
+}
+
+.mobileHeader {
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    min-height: 8vh; /* or auto */
+    display: flex;
+    flex-direction: column; /* if vertical list */
+    align-items: flex-start;
+    padding: 10px 2vw; /* some vertical padding */
+    background-color: black;
+    z-index: 9999; /* high to stay on top */
+    box-sizing: border-box;
+}
+
+.mobileButtonsListDiv {
+    display: none;
+    width: 100%;
+}
+
+.alwaysOnMobileButtonsListDiv {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.mobileButtonsListDiv.open{
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+}
+
+.alwaysOnMobileButtonsList {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+  flex-wrap: nowrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.alwaysOnMobileButtonsList li {
+  display: inline-flex;
+  margin-right: 10px;
+}
+
+.alwaysOnMobileButtonsList li:last-child {
+    margin-right: 0;
+}
+
+.header ul{
+    display: flex;
+    list-style-type: none;
+}
+
+
+.mobileHeader button {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 2.5vh; /* 2.5rem */
+    background: transparent;
+    /* background-color: red; */
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px; /* space between buttons and hamburger */
+    padding: 0;
+}
+
+#hamburgerButton {
+    /* background-color: green; */
+    height: 100%;               
+    aspect-ratio: 1 / 1;        /* Makes it square */
+    font-size: 5vh;             
+}
+
+/* Don't Delete just yet*/
+/* .mobileHeader button {
+  white-space: nowrap;
+  padding: 8px 12px;
+  font-size: 1.8vh;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+} */
+
+.mobileButtonsList {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15vw;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mobileButtonsList li {
+    display: inline-flex;
+}
+
+/* Remove Dots from all unordered lists  */
+ul{
+    list-style-type: none;
+}
+
+.header li{
+    overflow:hidden;
+}
+
+/* list items that have links within them shouldn't be blue with an underline */
+li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* All Buttons that are list items */
+/* Seems to override things */
+/* li button{
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    padding: 12px 16px;
+    font-size: 2vh;
+    min-height: 40px;
+} */
+
+/* seems to override things */
+/* li button:hover{
+    background-color: rgb(30, 30, 30);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+} */
+
+.navigationButton{
+    background-color: transparent;
+    color: white;
+    border-style: none;
+    padding: 1px 16px;
+    /* font-size: 2vh; */
+    font-size: clamp(18px, 1.5vw, 48px);
+    min-height: 40px;
+}
+
+.navigationButton:hover{
+    background-color: rgb(30, 30, 30);
+    border-style: solid;
+    border-radius: 10px;
+    border-color: rgb(255, 255, 255);
+}
+
+/* canvas{
+    background: black !important;
+} */
+
+.introDiv{
+    position: absolute;
+    display: flex;
+    top: 20%;
+    width: 100%;
+    color: white;
+    z-index: 2;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.planetDiv{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    /* gap: 2vh; */
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(30, 30, 30, .9);
+    color: white;
+    visibility: hidden;
+    z-index: 2;
+    border: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: rgb(60, 60, 60);
+    top: 20vh;
+    /* bottom: 4vh; */
+    width: 35vw;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/* .planetDiv ul {
+    list-style: none;       
+    padding: 0;             
+    margin: 0; 
+} */
+
+.planetTitleDiv {
+    /* background-color: red; */
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0.5em 1.0em;
+    box-sizing: border-box;
+}
+
+.planetTitleDiv span{
+    font-size: clamp(10px, 3vh, 6vw);
+    line-height: 1;
+    margin: 0;
+}
+
+.planetNameDiv {
+    /* background-color: blue; */
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0.5em 1.0em;
+    box-sizing: border-box;
+}
+
+.planetNameDiv span{
+    font-size: clamp(10px, 2vh, 3vw);
+    line-height: 1;
+    margin: 0;
+}
+
+.planetDescriptionDiv {
+    /* background-color: orange; */
+    /* flex: 1 1 auto; */
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    /* box-sizing: border-box; */
+    /* text-wrap: balance; */
+    gap: 2vh;
+}
+
+.documentedMoonsDiv {
+    /* background-color: purple; */
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    flex: 0 0 auto;
+    min-height: 0;
+    padding: 0.5em 1.0em;
+    box-sizing: border-box;
+}
+
+.documentedMoonsDiv span {
+    font-size: clamp(10px, 2vh, 3vw);
+    line-height: 1;
+    margin: 0;
+}
+
+
+
+/* Currently Unused */
+.planetHorizontalButtonsDiv{ 
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 20%;
+    width: 100%;
+    flex-shrink: 1;
+    flex-grow: 1;
+    overflow: auto;
+    min-height: 0;
+}
+
+.planetVerticalButtonsDiv {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
+    align-items: center;
+    width: 100%;
+    flex: 1 1 auto; /*supposedly lets it fill the space */
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* .planetVerticalButtonsDiv button{
+    width: 50%;
+    height: 100%;            
+    padding: 0px;
+    margin: 0;
+
+    background-color: rgb(60,60,60);
+
+    font-size: clamp(10px, 3vh, 48px); 
+    color: white;
+
+    border-style: solid;
+    border: 1px;
+    border-color: white;
+    border-radius: 10px;
+
+    cursor: pointer;
+} */
+
+
+/* .planetVerticalButtonsDiv ul {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    gap: 2vh; 
+    margin: 0;
+    padding: 0;
+  list-style: none;
+} */
+
+/* .planetVerticalButtonsDiv li {
+    display: flex;
+} */
+
+/* .planetVerticalButtonsDiv ul li {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+/* temp */
+/* .planetVerticalButtonsDiv button{
+    width: 50%;
+    height: 100%;            
+    padding: 0px;
+    margin: 0;
+
+    background-color: rgb(60,60,60);
+
+    font-size: clamp(10px, 1vh, 48px);
+    color: white;
+
+    border-style: solid;
+    border: 1px;
+    border-color: white;
+    border-radius: 10px;
+
+    cursor: pointer;
+} */
+
+.planetDivVerticalButton {
+    display: flex;
+    width: 50%;
+    height: 5vh;            
+    padding: 0px;
+    margin: 0;
+
+    background-color: rgb(60,60,60);
+
+    font-size: clamp(24px, 2vw, 48px);
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+    border: 1px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.rightSideButton {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 50px;    /* Set the width of the button here (e.g., 150px) */
+    height: 50px;    /* Span the entire height of the parent */
+    background-color: #3c3c3c;
+    color: white;
+    border: none;
+    border-radius:20px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;  /* Ensure it is above the other content */
+    text-align: center;
+    padding: 10px;  /* Adjust padding to make the button content look good */
+    box-sizing: border-box;  /* Ensure padding doesn't affect the width */
+}
+
+.rightSideButton:hover{
+    background-color: rgba(90, 90, 90, .9);
+}
+
+/* ANIMATION PAGE */
+.animationContent{
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    color: white;
+}
+
+.demoReel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 55vh;
+}
+
+.demoReel iframe{
+    height: 95%;
+    aspect-ratio: 16 / 9;
+    width: auto;
+    max-width: 100%;
+}
+
+.projectGalleryHeader{
+    background-color: rgb(60, 60, 60);
+    width: 100%;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projectGallery{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}
+.projectGalleryGridItem {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  display: flex;            /* ensures the button fills */
+}
+
+/* Reset and stretch button */
+.projectGalleryGridItem button {
+  flex: 1;                  /* fills parent flexbox */
+  position: relative;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+
+  background: #000;
+  color: #fff;
+
+  /* remove browser defaults */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: none;
+  box-shadow: none;
+  outline: none;
+  text-decoration: none;
+  font: inherit;
+  overflow: hidden;
+}
+
+/* Image fills button */
+.projectGalleryGridItem button img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: transform 0.3s ease;
+}
+
+.projectGalleryGridItem button:hover img {
+  transform: scale(1.05);
+  filter: brightness(0.5);
+}
+
+/* Text overlays */
+.textLineTitle,
+.textLineSubtitle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 90%;
+  color: white;
+  pointer-events: none;
+}
+
+.textLineTitle {
+  top: 40%;
+  /* font-size: 1.3rem; */
+  /* font-size: clamp(0.9rem, 1vw + 0.7rem, 3.6rem); */
+  font-size: clamp(10px, 20px, 40px);
+  font-weight: 600;
+}
+
+.textLineSubtitle {
+  top: 55%;
+  /* font-size: 1rem; */
+  font-size: clamp(6px, 12px, 2rem);
+  opacity: 0.9;
+}
+
+.projectInfo{
+    /* background-color: red; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+}
+
+
+.animationPageSectionDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.animationPageSectionTitleDiv {
+    background: rgb(60, 60, 60);
+    padding-left: 1vw;
+}
+
+.animationPageSectionTextAndScrollerDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.animationPageSectionTextDiv {
+    width: 50%;
+}
+
+/* horizontal scroll gallery */
+.scrollerContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* width: 100vw; */
+    width: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px; /* optional for rounded container */
+}
+
+/* Animation Page Scroll gellery */
+
+#animationPageScrollGallery,
+#photographyPageScrollGallery {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* width: 100vw; */
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.imageScrollerH {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    overflow-x: auto; /* keep scroll if you have more than 3 buttons */
+    scroll-behavior: smooth;
+    padding-right: 10px; /* optional */
+}
+
+.imageScrollerSingleH {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    overflow-x: auto; /* keep scroll if you have more than 3 buttons */
+    scroll-behavior: smooth;
+    padding-right: 10px; /* optional */
+}
+
+.imageScrollerSimulation {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    overflow-x: auto; /* keep scroll if you have more than 3 buttons */
+    scroll-behavior: smooth;
+    padding-right: 10px; /* optional */
+}
+
+.imageScrollerInteractive {
+    display: flex;
+    gap: 10px;
+    width: 100vw;
+    overflow-x: auto; /* keep scroll if you have more than 3 buttons */
+    scroll-behavior: smooth;
+    padding-right: 10px; /* optional */
+}
+
+.scrollLeft,
+.scrollRight {
+  position: absolute;
+  align-self:center;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: 1px solid white;
+  border-radius: 50%;
+  width: 7vh;
+  height: 7vh;
+  cursor: pointer;
+  z-index: 5;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrollLeft {
+  left: 10px;
+}
+
+.scrollRight {
+  right: 10px;
+}
+
+.scrollLeft img {
+    width: 60%;
+    height: 60%;
+}
+
+.scrollRight img {
+    width: 60%;
+    height: 60%;
+}
+
+/* Scoll Content Div */
+
+.scrollContentFullDiv {
+    position: relative;
+    /* width: calc((90vw - 20px) / 3); */
+    width: 90vw;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.scrollContentDiv {
+    position: relative;
+    width: calc((90vw - 20px) / 3); /* make roughly 3 visible regardless of width*/
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.scrollContentSingleDiv {
+    background-color: red;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.scrollContentFullDiv button {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    display: block;
+}
+
+.scrollContentDiv button {
+    position: relative;
+    width: 100%;
+    /* risky changes */
+    /* aspect-ratio: 16 / 9; */
+    height: 100%;
+    /* end risky changes */
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    display: block;
+}
+
+.scrollContentSingleDiv button {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    padding: 0;
+    border: none;
+    overflow: hidden;
+    display: block;
+    /* background-color: red; */
+}
+
+.scrollContentFullDiv button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.scrollContentDiv button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.scrollContentSingleDiv button img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover; */
+    object-fit: contain;
+    display: block;
+}
+
+.scrollContentFullDiv button span {
+  position: absolute;
+  bottom: clamp(8px, 1.5%, 16px);
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  padding: clamp(6px, 1vw, 12px) 10px;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 24px);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.scrollContentDiv button span {
+  position: absolute;
+  bottom: clamp(8px, 1.5vh, 16px);
+  /* bottom: 20%; */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  padding: clamp(6px, 1vw, 12px) 10px;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 24px);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.scrollContentSingleDiv button span {
+  position: absolute;
+  bottom: clamp(8px, 1.5vh, 20px);
+  /* bottom: 10px; */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  padding: clamp(6px, 1vw, 12px);
+  text-align: center;
+  font-size: clamp(14px, 3vw, 24px);
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+/* The text parts of the animation page */
+/* write up sections of animation page */
+.writeupImageRightDiv {
+    /* background-color: red; */
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.writeupImageRightDiv h1 {
+  height: 16%;
+  margin: 0;
+  background-color: rgba(60, 60, 60, 1.0);
+  padding-left: clamp(10px, 2vw, 30px);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.writeupImageRightContent {
+    /* background-color: red; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+
+.writeupImageRightContent p {
+  flex: 0 0 46%;
+  margin: 0;
+  overflow-y: auto;
+  padding: 1em;
+  font-size: clamp(12px, 2vw, 20px);
+}
+
+/*
+    Project Highlight
+*/
+
+
+
+/* Photography */
+.photographyContent{
+    position: absolute;
+    color:white;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+}
+
+#petSection,
+#peopleSection,
+#productSection {
+    scroll-margin-top: 8vh;
+}
+/* CONTACT PAGE*/
+
+.contactContent {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 16vh;
+    gap: 3vh;
+    color:white;
+    width: 100%;
+}
+
+.contactHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* This Div is for each contact site */
+.contactDiv {
+    background-color: rgba(60, 60, 60, 1.0);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 3vh;
+    padding: 1rem;
+    border-radius: 8px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(127, 127, 127);
+}
+
+
+
+.contactImageWrapper {
+    /* background-color: red; */
+    width: clamp(50px, 4vw, 300px);
+    height: clamp(50px, 4vw, 300px);
+    aspect-ratio: 1 / 1;      /* keeps it square */
+    border-radius: 50%;       /* makes it a perfect circle */
+    overflow: hidden;         /* clips overflow */
+    /*margin: 1.5rem 0; */         /* vertical spacing */
+    flex-shrink: 1;           /* prevent shrinking when flexed 1 = allow*/
+    min-height: 0;
+}
+
+.contactImageWrapper img {
+  width: 100%;             /* fill the wrapper */
+  height: 100%;            /* fill the wrapper */
+  object-fit: cover;       /* cover area without distortion */
+  display: block;          /* remove inline img gaps */
+}
+
+.contactTitleDiv span {
+    font-weight: bold;
+}
+
+.contactLinkDiv button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.6em 1.5em;
+    font-size: clamp(14px, 2vw, 18px); /* responsive text */
+    font-weight: 600;
+
+    background-color: #595959;
+    color: white;
+    border: none;
+    border-radius: 9999px; /* pill shape */
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(127, 127, 127);
+    cursor: pointer;
+    white-space: nowrap;
+
+    min-height: 2.75em;    /* consistent height */
+    min-width: 120px;      /* prevents tiny buttons with short text */
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6em 1.5em;
+    height: clamp(35px, 4vh, 200px);
+    background-color: #595959;
+    border-radius: 9999px; */
+    
+}
+
+.contactLinkDiv button:hover {
+    background-color: white;
+    color: black;
+}
+
+.contactLinkDiv button:hover a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.contactLinkDiv a {
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.contactLinkDiv a:hover {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+/* Blog */
+
+.blogContent {
+    position: absolute;
+    color:white;
+    top: 10vh;
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+}
+
+.blogEntry {
+    display: flex;
+    flex-direction: row;
+    height: 50vh;
+    /* background-color: orange; */
+}
+
+.blogTextDiv {
+    /* background-color: rgba(149, 255, 0, 0.5); */
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100%;
+    width: 60vw;
+    padding: 2vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.blogTextDiv h1,
+.blogTextDiv h2 {
+    margin: 0;
+}
+
+.blogImageDiv {
+    /* background-color: green; */
+    display: flex;
+    width: 40vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.blogImageDiv img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* ABOUT PAGE*/
+.aboutContent{
+    /* background-color: yellow; */
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 16vh;
+    width: 100vw;
+    color: white;
+}
+
+.aboutHeaderDiv {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh;
+}
+
+.aboutNameDiv {
+    /* background-color: orange; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(20px, 20vw, 50px);
+}
+
+.aboutTitleDiv {
+    /* background-color: turquoise; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* reused block */
+.aboutSectionDiv {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1vh;
+    gap: 1vw;
+}
+
+.aboutSectionTitleDiv {
+    background-color: rgb(60, 60, 60);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.aboutSectionTitleDiv span{
+    font-size: clamp(24px, 3vw, 48px);
+}
+
+.aboutSectionTextAndImageDiv {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+
+.aboutSectionDescriptionDiv {
+    display: flex;
+    width: 50%;
+}
+
+.aboutPortraitDiv {
+    /* background-color: green; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    aspect-ratio: 4 / 6;
+    max-height: 40vh;
+    overflow: hidden;
+}
+
+.aboutPortraitDiv img {
+    display: block;
+    height: 100%;
+    width: auto;
+    max-height: 40vh;
+    object-fit: cover;
+    object-position: center;
+}
+
+.aboutEducationDegreeDiv {
+    background-color: rgb(30, 30, 30);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.degreeWrapperDiv {
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    width: 100%; /* or 100% if you want full width */
+}
+
+/* RESUME PAGE */
+
+/* this section contains the resume document */
+.aboutResumeDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding: 1vw; */
+    width: 100%;
+    box-sizing: border-box;
+    /* risky */
+    /* height: 100vh;
+    min-height: 0; */
+}
+/* this IS the resume document */
+.resumeWrapper {
+    /* background-color: #388ac4;  */
+    background-color: gray;
+    display: flex;
+    flex-direction: row;      /* left and right side by side */
+    width: 95%;              /* take up most of the horizontal space */
+    height: auto;
+    max-width: 900px;        /* limit max width so it’s not too wide on big screens */
+    /*aspect-ratio: 8.5 / 13;*/  /* typical paper aspect ratio */
+    margin: 2rem auto;        /* center horizontally with vertical margin */
+    /*padding: 0.5rem; */            /* inner padding  1rem*/
+    box-sizing: border-box;   /* include padding in width */
+    border-radius: 8px;       /* slightly rounded corners */
+    overflow: hidden;         /* clip overflow */
+}
+
+/* Stuff on the left side */
+.resumeLeftDiv {
+    /* background-color: gray; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    /* Ensure it fills the parent's height */
+    height: 100%;  /* This lets the left div fill the full height of .resumeWrapper */
+    box-sizing: border-box;
+    /* padding: 1rem 0; */
+    padding: 0.5rem;
+    min-height: 0;
+    overflow: hidden;
+    gap: 0px;
+}
+
+/* Tiny left side portrait image */
+.resumeLeftImageWrapper {
+    /* background-color: red; */
+    width: 80%;               /* scales with parent width */
+    aspect-ratio: 1 / 1;      /* keeps it square */
+    border-radius: 50%;       /* makes it a perfect circle */
+    overflow: hidden;         /* clips overflow */
+    /*margin: 1.5rem 0; */         /* vertical spacing */
+    flex-shrink: 0;           /* prevent shrinking when flexed 1 = allow*/
+}
+
+.resumeLeftImageWrapper img {
+  width: 100%;             /* fill the wrapper */
+  height: 100%;            /* fill the wrapper */
+  object-fit: cover;       /* cover area without distortion */
+  display: block;          /* remove inline img gaps */
+}
+
+.resumeLeftLinksSection {
+    /* background-color: red; */
+    width: 100%;
+    margin-top: 1vh;
+    flex-shrink: 1;     /* allow it to shrink */
+    min-height: 0;      /* allow vertical shrinking */
+    overflow: hidden;   /* optional safety net */
+    display: flex;
+    flex-direction: column;
+}
+
+.resumeLeftSectionTitle {
+  font-weight: 700;
+  font-size: 1.25rem;
+  /* margin-bottom: 1rem; */
+  text-align: left;
+  color: #222;
+  flex-shrink: 1;
+  min-height: 0;
+  font-size: clamp(12px, 1.5vw, 16px); 
+}
+
+.resumeLeftLink {
+  display: flex;
+  flex-direction: column; /* stack vertically */
+  padding: 0.4rem 0;
+  border-bottom: 1px solid #ccc;
+  gap: 0.2rem; /* small spacing between name and link */
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resumeLeftLinkName {
+  font-weight: 600;
+  color: #444;
+  flex-shrink: 1;
+  min-height: 0;
+}
+
+.resumeLeftLinkUrl {
+  word-wrap: break-word;   /* allow breaking long URLs */
+  white-space: normal;     /* allow multiline text */
+  overflow-wrap: break-word; /* extra safety for long words */
+  max-width: 100%;         /* don't exceed parent's width */
+  display: inline-block;   /* keep link block-like for clickable area */
+  flex-shrink: 1;
+  min-height: 0;
+}
+
+.resumeLeftLinkName,
+.resumeLeftLinkUrl {
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal;
+  font-size: clamp(10px, 1.5vw, 14px);
+}
+
+.resumeLeftLinkUrl a {
+  display: inline-block;   /* ensures entire text block is clickable */
+  width: 100%;             /* fill container width */
+  color: blue;             /* example link color */
+  text-decoration: underline;
+  word-break: break-word;  /* breaks long words/URLs */
+  flex-shrink: 1;
+  min-height: 0;
+}
+
+.resumeLeftHobbiesSection {
+  width: 100%;
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* align children (including title) to left */
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resumeLeftHobbiesSection > div {
+  display: flex;
+  justify-content: center; /* centers the ul container */
+}
+
+.resumeLeftHobbiesListWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-shrink: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resumeLeftHobbiesSection ul {
+  list-style-type: disc;   /* normal bullet points */
+  padding-left: 0em;     /* indent so bullets are visible 1.2em*/
+  margin: 0;               /* remove default top/bottom margin if you want */
+  color: #222;             /* text color (optional) */
+  font-size: clamp(12px, 1.5vw, 16px); /* responsive font size */
+  
+}
+.resumeLeftHobbiesSection li {
+  margin-bottom: 0.3em;    /* space between hobbies */
+  font-size: clamp(10px, 1.5vw, 16px);
+}
+
+
+/* RESUME RIGHT SIDE */
+.resumeRightDiv {
+    background-color: rgb(220, 220, 220);
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;     /* allow grow and shrink */
+    min-height: 0;
+    overflow: hidden;
+    width: 75%;
+    padding: 0.5rem;
+}
+
+.resumeRightDiv > div {
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+}
+
+.resumeRightDiv > .resumeHeaderDiv {
+    width: 100%;
+    display: flex;
+    flex: 0 0 auto;
+    color:#222;
+    padding: 0.5rem;
+}
+
+.resumeSectionTitle {
+    background-color: #444;
+    /* font-size: clamp(10px, 2vh, 30px); */
+    font-size: clamp(14px, 2vw, 30px);
+    font-weight: bold;
+
+}
+
+.resumeRightDiv > .resumeWorkDiv,
+.resumeRightDiv > .resumeEducationDiv {
+    display: flex;
+    flex-direction: column;
+    /* flex: 0 0 auto; */
+    flex: 0 1 auto;
+}
+
+/* .resumeHeaderDiv {
+    background-color: red;
+    height: 20%;
+} */
+
+.resumeHeaderDiv > div {
+    display: flex;
+}
+
+.resumeNameTitleDiv {
+    /* background-color: rgb(0, 255, 255, 0.5); */
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.resumeNameDiv {
+    font-size: clamp(12px, 5vw, 40px);
+    font-weight: bold;
+}
+
+.resumeTitleDiv{
+    font-size: clamp(10px, 4vw, 20px);
+}
+
+.resumeSubtitleDiv{
+    font-size: clamp(6px, 2vw, 10px);
+}
+
+
+.resumeContactDiv {
+    /* background-color: rgba(64, 255, 0, 0.5); */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    /* flex: 1 1 auto; */
+    justify-content: center;
+    align-items: flex-start;
+    width: 55%;
+    gap: 1vh;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.resumeContactDiv > div {
+    /* background-color: green; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* gap: 1vw; */
+    font-size: clamp(10px, 2vh, 30px);
+    /* flex: 1;
+    overflow: hidden; */
+}
+
+/* Contact entries */
+/* these hold an icon and an address/phone/etc */
+.resumeContactEntryDiv {
+    display: flex;
+    align-items: center;
+    /* height: 25%; */
+    height: auto;
+    min-height: 0;
+    gap: 1vw;
+    overflow: hidden;
+    font-size: clamp(8px, 1.2vh, 30px);
+}
+/* images */
+/* Tiny icons */
+.resumeRightImageWrapper {
+    /* background-color: red; */
+    /* width: 20%; */
+    /* height: 100%; */
+    width: clamp(25px, 4vh, 100px);
+    height: clamp(25px, 4vh, 100px);
+    aspect-ratio: 1 / 1;      /* keeps it square */
+    border-radius: 50%;       /* makes it a perfect circle */
+    overflow: hidden;         /* clips overflow */
+    /*margin: 1.5rem 0; */         /* vertical spacing */
+    flex-shrink: 1;           /* prevent shrinking when flexed 1 = allow*/
+    min-height: 0;
+}
+
+.resumeRightImageWrapper img {
+  width: 100%;             /* fill the wrapper */
+  height: 100%;            /* fill the wrapper */
+  object-fit: cover;       /* cover area without distortion */
+  display: block;          /* remove inline img gaps */
+}
+
+.resumeContactEntryTextDiv {
+    font-size: clamp(8px, 1.2vw, 30px);
+}
+
+/* WORK EXPERIENCE */
+.resumeWorkDiv {
+    /* background-color: orange; */
+    flex-direction: column;
+    /* new */
+    flex: 0 1 auto;
+    min-height: 0;
+}
+
+/* Each place I've worked */
+.resumeJobDiv {
+    /* background-color: cornflowerblue; */
+    color:#222;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0.5vh;
+    /* new stuff */
+    flex: 0 1 auto;
+    min-height: 0;
+}
+
+/* Contains employer name and dates worked */
+.resumeWorkEmployerDiv {
+    /* background-color: rgb(215, 131, 21); */
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.resumeEmployerNameDiv {
+    font-size: clamp(14px, 2vw, 30px);
+}
+/* Contains dates worked/attended */
+.resumeDatesDiv {
+    font-size: clamp(6px, 2vw, 15px);
+
+}
+/* this is where title and tasks bullet list for jobs go */
+.resumeWorkJobDiv {
+    /* background-color: brown; */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+    width: 60%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    gap: 0vh;
+    font-size: clamp(8px, 1.2vh, 15px);
+}
+
+.resumeJobTitle {
+    /* background-color: green; */
+    /* font-weight: bold; */
+    min-height: 0;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    font-size: clamp(14px, 2vw, 30px);
+}
+
+/* Contains the unordered list element (ul)  */
+.resumeJobTasksDiv {
+    /* background-color: blue; */
+    display: flex;
+    /* new */
+    flex-direction: column;
+    flex: 1 1 auto;
+    justify-content: stretch;
+    /* end new */
+    /* align-items: center; */
+    margin: 0px;
+    padding: 0px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.resumeJobTasksDiv ul {
+    /* background-color: purple; */
+    list-style-type: disc; /* ensures bullet points */
+    padding-left: 2.5em;   /* adds space for bullets */
+    padding-top: 0;
+    flex: 1 1 auto;
+    /* new */
+    min-height: 0;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* end new */
+    margin: 0;
+}
+
+.resumeJobTasksDiv li {
+    color: black;
+    flex: 0 1 auto;                 /* allows growing/shrinking */
+    min-height: 0;                 /* allows shrinking */
+    overflow: hidden;              /* avoids overflow mess */
+    word-wrap: break-word;         /* wraps long words */
+    font-size: clamp(6px, 2vw, 15px); /* responsive size */
+    display: flex;                /* optional: for vertical centering */
+    /*align-items: center; */        /* optional: center vertically */
+    padding: 0 0.5em;              /* optional: side spacing */
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside; /* or 'outside' if you want bullets aligned left */
+    
+    text-overflow: ellipsis;
+}
+
+
+/* .resumeEducationDiv {
+    background-color: rgb(136, 178, 0);
+    
+} */
+
+.resumeSkillsDiv,
+.resumeToolsDiv {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.resumeSkillsDiv {
+    /* background-color: blue; */
+    display: flex;
+    flex: 0 1 auto;
+}
+
+.resumeToolsDiv {
+    /* background-color: green; */
+    display: flex;
+    flex: 0 1 auto;
+}
+
+.resumeSkillsGrid,
+.resumeToolsGrid {
+    /* background-color: purple; */
+    color: #222;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /*grid-auto-rows: minmax(0, 1fr);*/ /* THIS allows rows to shrink */
+    /* grid-auto-rows: 1fr;  this makes all rows equal size*/
+    grid-auto-rows: auto;
+    height: 100%;    /* fills parent height */
+    min-height: 0;   /* allows shrinking */
+    overflow: hidden;
+    padding: 0em;
+}
+
+.resumeSkillsGrid > div,
+.resumeToolsGrid > div {
+  min-width: 0; /* allow shrinking */
+  overflow-wrap: break-word; /* break long words to avoid overflow */
+}
+
+.resumeGridItem {
+    /* background-color: rgb(61, 134, 61); */
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    min-width: 0; /* allow shrinking */
+    overflow-wrap: break-word; /* break long words to avoid overflow */
+    margin: 1vh;
+    /* font-size: clamp(8px, 2vh, 30px); */
+    /* font-size: clamp(8px, 1.7vh, 20px); */
+    font-size: clamp(12px, 2vh, 20px);
+
+}
+
+/* Recipe Generator */
+.recipeContent {
+    /* background-color: red; */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    top: 10vh;
+    color: white;
+}
+
+.innerDiv{
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 100%;
+    gap: 10px;
+}
+
+#recipePageTitle {
+    /* background-color: green; */
+    font-size: clamp(12px, 5rem, 30px);
+    font-weight: bold;
+}
+
+#recipePageDescription {
+    /* background-color: blue; */
+    font-size: clamp(12px, 3vh, 24px);
+}
+
+#randomButtonWrapper {
+    /* background-color: indigo; */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+#randomButtonWrapper button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.6em 1.5em;
+    font-size: clamp(14px, 2vw, 18px); /* responsive text */
+    font-weight: 600;
+
+    background-color: #595959;
+    color: white;
+    border: none;
+    border-radius: 9999px; /* pill shape */
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(127, 127, 127);
+    cursor: pointer;
+    white-space: nowrap;
+
+    min-height: 2.75em;    /* consistent height */
+    min-width: 120px;      /* prevents tiny buttons with short text */
+}
+
+.recipeOutputDiv{
+    background-color: rgba(120, 120, 120, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#recipeOutputHeader {
+    background-color: rgba(60, 60, 60, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;;
+    gap: 10px;
+    padding: 5px
+}
+
+#recipeTitle,
+#recipeDescription {
+    display: flex;
+    flex-direction: column;
+    /* gap: 1vh; */
+}
+
+#recipeTitle {
+    /* background-color: red; */
+    font-size: clamp(12px, 5rem, 30px);
+    font-weight: bold;
+}
+
+#recipeDescription {
+    /* background-color: orange; */
+    font-size: clamp(12px, 3vh, 24px);
+}
+
+#recipeImage {
+    /* background-color: red; */
+    width: 50%;
+    /* height: clamp(25px, 4vh, 100px); */
+    aspect-ratio: 16 / 9;      /* keeps it square */
+    border-radius: 10px;       /* makes it a perfect circle */
+    overflow: hidden;         /* clips overflow */
+    /*margin: 1.5rem 0; */         /* vertical spacing */
+    flex-shrink: 1;           /* prevent shrinking when flexed 1 = allow*/
+    min-height: 0;
+}
+
+#recipeImage img{
+    width: 100%;             /* fill the wrapper */
+    height: 100%;            /* fill the wrapper */
+    object-fit: cover;       /* cover area without distortion */
+    display: block; 
+}
+
+
+#recipeIngredientSection {
+    /* background-color: black; */
+    display: flex;
+    flex-direction: column;
+}
+
+#ingredientSectionTitle {
+    /* background-color: magenta; */
+    display: flex;
+    font-size: clamp(13px, 2rem, 25px);
+    font-weight: bold;
+    height: 10vh;
+    align-items: center;
+}
+#ingredientSectionContent {
+    /* background-color: chartreuse; */
+    display: flex;
+    height: 100%;
+}
+#recipeIngredients {
+    /* background-color: rgb(149, 59, 149); */
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+/* Random recipe */
+.ingredientWrapper {
+    background-color: rgba(60, 60, 60, 1.0);
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    gap: 10px;
+    width: 100%;
+    /* box-shadow: 4px 4px 8px rgb(84, 84, 84); */
+    transition-duration: 1s;
+    transition-timing-function: ease;
+}
+
+.ingredientWrapper:hover{
+    background-color: rgba(90, 90, 90, 1.0);
+    /* width: 100%; */
+}
+
+.ingredientText {
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(12px, 3rem, 24px);
+}
+
+.ingredientImage {
+    /* background-color: green; */
+    align-items: center;
+    /* width: 20vh; */
+    width: 20%;
+
+    aspect-ratio: 1/1;
+}
+
+.ingredientImage img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+    from{opacity:0; transform: translateX(-100%);}
+    to{opacity: 1; transform: translateX(0%);}
+}
+
+@keyframes fadeOut{
+    from{opacity:1; transform: translateX(0%);}
+    to{opacity: 0; transform: translateX(-100%);}
+}
+
+@keyframes opacityFadeIn{
+    from{opacity:0;}
+    to{opacity: 1;}
+} 
+
+@keyframes loading-text {
+    0%{
+        content:"Loading"
+    }
+    10%{
+        content:"Loading."
+    }
+    20%{
+        content:"Loading.."
+    }
+    30%{
+        content:"Loading..."
+    }
+    40%{
+        content:"Loading...."
+    }
+    50%{
+        content:"Loading....."
+    }
+    60%{
+        content:"Loading......"
+    }
+    70%{
+        content:"Loading......."
+    }
+    80%{
+        content:"Loading........"
+    }
+    90%{
+        content:"Loading.........."
+    }
+    100%{
+        content:"Loading..........."
+    }
+}
+
+@keyframes pulse {
+    0%{
+        transform: translate(0px, 0px);
+        
+    }
+    35%{
+        transform: translate(80px, 0px);
+    }
+    40%{
+        transform: translate(92px, -50px);
+    }
+    60%{
+        transform: translate(138px, 40px);
+    }
+    65%{
+        transform: translate(150px, 0px);
+    }
+    100%{
+        transform: translate(230px, 0px);
+    }
+}
+
+@keyframes pulseScale {
+    0%{
+        transform: scale(0%);
+    }
+    50%{
+        transform: scale(100%);
+    }
+    100%{
+        transform: scale(0%);
+    }
+}
+
+@keyframes orbit {
+    0% {
+        transform: translate(-10px, 40px);
+        animation-timing-function: ease-in-out;
+    }
+    50% {
+        transform: translate(240px, -55px);
+        animation-timing-function: ease-in-out;
+    }
+    100% {
+        transform: translate(-10px, 40px);
+        animation-timing-function: ease-in-out;
+    }
+}
+
+@keyframes orbitScale {
+    0% {
+        transform: scale(1);
+        animation-timing-function: linear;
+    }
+    25%{
+        transform: scale(2);
+        animation-timing-function: linear;
+    }
+    50%{
+        transform: scale(1);
+        animation-timing-function: linear;
+    }
+    70%{
+        opacity: 1;
+    }
+    73%{
+        opacity: 0;
+    }
+    75%{
+        transform: scale(.25);
+        opacity: 0;
+        animation-timing-function: linear;
+    }
+    79%{
+        opacity: 0;
+    }
+    83%{
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        animation-timing-function: linear;
+    }
+}
+
+
+/* Responsive */
+
+/* Mobile */
+@media (max-width : 767px){
+    .header {
+        display: none;
+    }
+
+    .planetDiv {
+        background-color: rgba(30, 30, 30, .7);
+        width: 90vw;
+    }
+
+    .demoReel {
+        /* width: 100vw; */
+        aspect-ratio: 16 / 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .scrollContentDiv {
+        /* display: flex;
+        color: white; */
+        /* background-color: purple; */
+        position: relative;
+        width: calc((90vw - 20px) / 2); /* make roughly 3 visible regardless of width*/
+        aspect-ratio: 16 / 9;
+        border-radius: 10px;
+        overflow: hidden;
+        background: none;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .scrollerContainer {
+        width: 100%;
+    }
+
+    .animationPageSectionTextAndScrollerDiv {
+        flex-direction: column;
+    }
+    .animationPageSectionTextDiv {
+        width: 100%;
+    }
+
+    #simulationTextAndScrollerDiv {
+        flex-direction: column-reverse;
+    }
+
+    .writeupImageRightContent {
+        flex-direction: column;
+    }
+
+    #peopleTextAndImageDiv,
+    #miscTextAndImageDiv {
+        /* reverse */
+        flex-direction: column-reverse;
+    }
+    /* Photography */
+    #petSection,
+    #peopleSection,
+    #productSection {
+        scroll-margin-top: 16vh;
+    }
+
+    .aboutSectionDiv {
+        flex-direction: column;
+    }
+
+    .aboutPortraitDiv {
+        width: 100%;
+    }
+
+    .aboutSectionTextDiv {
+        width: 100%;
+    }
+    .aboutSectionTextAndImageDiv {
+        flex-direction: column;
+    }
+
+    .aboutSectionDescriptionDiv {
+        width: 100%;
+    }
+
+    /* Recipe */
+    #recipeIngredients {
+        grid-template-columns: 1fr;
+    }
+    #recipeOutputHeader {
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    /* #recipeOutputTitleDescriptionWrapper {
+        align-items: flex-start;
+    } */
+    #recipeImage{
+        width:100%;
+    }
+
+    /*
+        Portfolio Gallery
+    */
+    .projectGallery{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+    .mobileHeader {
+        display: none;
+    }
+}
