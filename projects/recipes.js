@@ -1125,7 +1125,7 @@ export default [
     {
         name: "Spicy Korean Fried Chicken",
         type: "chicken",
-        description: "chicken and rice",
+        description: "with omsom bulgogi sauce, garlic mayo & slaw",
         prepTime: "10 minutes",
         coverImage: "images/comingSoon_HD.jpg",
         ingredients: [
