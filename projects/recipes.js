@@ -1303,8 +1303,87 @@ export default [
                 image: "images/tempIcon_01.jpg"
             }
         ]
+    },
+    {
+        name: "Sweet Chili Pork Bowls",
+        type: "pork",
+        description: "with bell pepper & candied peanuts",
+        prepTime: "30 minutes",
+        coverImage: "images/comingSoon_HD.jpg",
+        ingredients: [
+            {
+                name: "Ground Pork",
+                amount: "10 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Bell Pepper",
+                amount: "1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Onion",
+                amount: "1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Lime",
+                amount: "1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Cilantro",
+                amount: "1/4 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Jasmine Rice",
+                amount: "1/4 cup",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Peanuts",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Sweet Soy Glaze",
+                amount: "4 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Sweet Thai Chili Sauce",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Kosher Salt",
+                amount: "to taste",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Black Pepper",
+                amount: "to taste",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Sugar",
+                amount: "1 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Cooking Oil",
+                amount: "1 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Butter",
+                amount: "2 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+        ]
+    },
 
-    }
 
 
 
