@@ -1218,6 +1218,93 @@ export default [
             }
         ]
     },
+    {
+        name: "Santa Fe Pork Tacos",
+        type: "pork",
+        description: "with Monterey Jack & Cilantro Lime Slaw",
+        prepTime: "20 minutes",
+        coverImage: "images/comingSoon_HD.jpg",
+        ingredients: [
+            {
+                name:"Ground Pork",
+                amount:"10 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Yellow Onion",
+                amount:"1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Cilantro",
+                amount:"1/4 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Lime",
+                amount:"1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Southwest Spice Blend",
+                amount:"1 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Shredded Red Cabbage",
+                amount:"4 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Mayonnaise",
+                amount:"2 TBSP",
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Eggs"
+            },
+            {
+                name:"Tex-Mex Paste",
+                amount:"2 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Flour Tortillas",
+                amount:"6",
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Wheat",
+            },
+            {
+                name:"Monterey Jack Cheese",
+                amount:"1/4 cup",
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Milk"
+            },
+            {
+                name:"Sour Cream",
+                amount:"2 TBSP",
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Milk"
+            },
+            {
+                name:"Kosher Salt",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Black Pepper",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Cooking Oil",
+                amount:"1 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name:"Sugar",
+                amount:"1 tsp",
+                image: "images/tempIcon_01.jpg"
+            }
+        ]
+
+    }
 
 
 
