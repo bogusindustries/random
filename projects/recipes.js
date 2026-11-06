@@ -1068,7 +1068,7 @@ export default [
             {
                 name: "Fresh Mozzarella",
                 amount: "4 Ounces",
-                allergen: "Contains Milk",
+                allergen: "Contains Dairy",
                 image: "images/tempIcon_01.jpg"
             },
             {
@@ -1090,7 +1090,7 @@ export default [
             {
                 name: "Parmesean Cheese",
                 amount: "1/4 Cup",
-                allergen: "Contains Milk",
+                allergen: "Contains Dairy",
                 image: "images/tempIcon_01.jpg"
             },
             {
@@ -1276,13 +1276,13 @@ export default [
                 name:"Monterey Jack Cheese",
                 amount:"1/4 cup",
                 image: "images/tempIcon_01.jpg",
-                allergen: "Contains Milk"
+                allergen: "Contains Dairy"
             },
             {
                 name:"Sour Cream",
                 amount:"2 TBSP",
                 image: "images/tempIcon_01.jpg",
-                allergen: "Contains Milk"
+                allergen: "Contains Dairy"
             },
             {
                 name:"Kosher Salt",
@@ -1413,7 +1413,8 @@ export default [
             {
                 name: "Peanuts",
                 amount: "1/2 oz",
-                image: "images/tempIcon_01.jpg"
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Peanuts"
             },
             {
                 name: "Sweet Soy Glaze",
@@ -1438,7 +1439,8 @@ export default [
             {
                 name: "Peanut Butter",
                 amount: "1.15 oz",
-                image: "images/tempIcon_01.jpg"
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Peanuts"
             },
             {
                 name: "Chili Flakes",
@@ -1473,7 +1475,8 @@ export default [
             {
                 name: "Butter",
                 amount: "1 TBSP",
-                image: "images/tempIcon_01.jpg"
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Dairy"
             },
         ]
     },
