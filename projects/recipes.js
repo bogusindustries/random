@@ -1308,7 +1308,7 @@ export default [
         name: "Sweet Chili Pork Bowls",
         type: "pork",
         description: "with bell pepper & candied peanuts",
-        prepTime: "30 minutes",
+        prepTime: "5 minutes",
         coverImage: "images/comingSoon_HD.jpg",
         ingredients: [
             {
@@ -1379,6 +1379,100 @@ export default [
             {
                 name: "Butter",
                 amount: "2 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+        ]
+    },
+        {
+        name: "Szechuan Pork Ramen Stir-Fry",
+        type: "pork",
+        description: "with carrots, scallions & peanuts",
+        prepTime: "30 minutes",
+        coverImage: "images/comingSoon_HD.jpg",
+        ingredients: [
+            {
+                name: "Ground Pork",
+                amount: "10 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Garlic",
+                amount: "1 clove",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Scallions",
+                amount: "2",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Carrots",
+                amount: "3 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Peanuts",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Sweet Soy Glaze",
+                amount: "4 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Pork Ramen Stock Concentrate",
+                amount: "1",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Szechuan Paste",
+                amount: "2 TBSP",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "White Wine Vinegar",
+                amount: "5 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Peanut Butter",
+                amount: "1.15 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Chili Flakes",
+                amount: "1 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Ramen Noodles",
+                amount: "4.5 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Salt",
+                amount: "to taste",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Pepper",
+                amount: "to taste",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Sugar",
+                amount: "1.5 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Cooking Oil",
+                amount: "1 tsp",
+                image: "images/tempIcon_01.jpg"
+            },
+            {
+                name: "Butter",
+                amount: "1 TBSP",
                 image: "images/tempIcon_01.jpg"
             },
         ]
