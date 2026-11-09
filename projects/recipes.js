@@ -1029,7 +1029,8 @@ export default [
             {
                 name: "Cream Cheese",
                 amount: "2 xx oz pkg",
-                image: "images/tempIcon_01.jpg"
+                image: "images/tempIcon_01.jpg",
+                allergen: "Contains Dairy"
             }
         ]
     },
@@ -1383,7 +1384,7 @@ export default [
             },
         ]
     },
-        {
+    {
         name: "Szechuan Pork Ramen Stir-Fry",
         type: "pork",
         description: "with carrots, scallions & peanuts",
@@ -1480,6 +1481,21 @@ export default [
             },
         ]
     },
+    {
+        name:"Sweet Chili Pork & Cabbage Stir-Fry",
+        type: "pork",
+        description: "with crispy fried onions",
+        prepTime: "5 minutes",
+        ingredients: [
+            {
+                name: "Ground Pork",
+                amount: "10 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+            
+            
+        ]
+    }
 
 
 
