@@ -21,7 +21,12 @@ randomButton.addEventListener("click", () => {
     setRecipeDescription()
     setRecipeIngredients()
     setRecipeImage()
+    console.log(getRecipeArray(3).map(r => r.name))
 })
+
+const getRecipeArray = (n)=> recipeRandomizer.getRecipeArray(n)
+
+
 
 const getRecipe = () =>{
     // Create random whole number between 0 and length of recipe library
