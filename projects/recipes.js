@@ -1486,13 +1486,13 @@ export default [
         type: "pork",
         description: "with crispy fried onions",
         prepTime: "5 minutes",
+        coverImage: "images/comingSoon_HD.jpg",
         ingredients: [
             {
                 name: "Ground Pork",
                 amount: "10 oz",
-                image: "images/tempIcon_01.jpg"
             },
-            
+
             
         ]
     }
