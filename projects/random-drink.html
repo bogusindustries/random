@@ -125,6 +125,118 @@
             padding: 12px 14px 16px;
         }
 
+        /* Single recipe view */
+        #recipeView[hidden], #recipeGrid[hidden], .recipeIntro[hidden],
+        .recipeGridButton[hidden], #filterMessage[hidden] {
+            display: none;
+        }
+
+        #filterMessage {
+            margin: 0 0 12px;
+            color: rgb(200, 200, 200);
+        }
+
+        .extrasToggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 8px 6px;
+            font-size: 0.9em;
+            color: rgb(200, 200, 200);
+            cursor: pointer;
+        }
+
+        .extrasToggle input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .recipeIngredientSection {
+            margin-top: 20px;
+        }
+
+        .recipeSectionTitle {
+            margin: 0 0 10px;
+            font-size: clamp(16px, 1.6vw, 22px);
+        }
+
+        .recipeHeaderImage {
+            display: block;
+            width: 100%;
+            max-height: 40vh;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .recipeInfoLine {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 8px 24px;
+            margin: 16px 0 24px;
+        }
+
+        .recipeInfoName {
+            font-size: clamp(20px, 2.4vw, 32px);
+            font-weight: 700;
+        }
+
+        .recipeInfoDescription, .recipeInfoGlass {
+            color: rgb(200, 200, 200);
+        }
+
+        .recipeIngredientGrid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+        }
+
+        .recipeIngredientCell {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 12px;
+            text-align: center;
+            background-color: rgb(30, 30, 30);
+            border-radius: 8px;
+        }
+
+        .recipeIngredientCell img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .recipeIngredientAmount {
+            font-size: 0.85em;
+            color: rgb(170, 170, 170);
+        }
+
+        .recipeInstructions {
+            margin-top: 24px;
+        }
+
+        .recipeInstructions p {
+            margin: 0 0 8px;
+            line-height: 1.5;
+        }
+
+        .recipeBackButton {
+            margin-top: 24px;
+            padding: 12px 20px;
+            font-family: inherit;
+            font-weight: 700;
+            color: #2d2d2d;
+            background-color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
         /* Stack on narrow screens */
         @media (max-width: 700px) {
             .plannerLayout {
@@ -174,6 +286,10 @@
         <div class="plannerLayout">
             <section class="ingredientColumn">
                 <h2 class="columnTitle">Ingredients</h2>
+                <label class="extrasToggle">
+                    <input type="checkbox" id="ignoreExtras" checked>
+                    <span>Ignore garnishes, ice, water, etc.</span>
+                </label>
                 <ul id="ingredientList"></ul>
             </section>
 
@@ -196,7 +312,11 @@
                     </div>
                 </div>
 
+                <p id="filterMessage"></p>
+
                 <div id="recipeGrid"></div>
+
+                <div id="recipeView" hidden></div>
             </section>
         </div>
 
