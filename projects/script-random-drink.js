@@ -208,6 +208,23 @@ ignoreExtras.addEventListener("change", () => {
     applyFilter()
 })
 
+// Untick everything and show all drinks again
+document.getElementById("clearIngredients").addEventListener("click", () => {
+    checked.clear()
+    for(const box of ingredientList.querySelectorAll("input[type=checkbox]")) box.checked = false
+    applyFilter()
+})
+
+// Shuffle: Fisher-Yates the recipe order, then re-append the buttons in that order
+document.getElementById("randomButton").addEventListener("click", () => {
+    const buttons = [...recipeButtons.values()]
+    for(let i = buttons.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[buttons[i], buttons[j]] = [buttons[j], buttons[i]]
+    }
+    recipeGrid.append(...buttons)
+})
+
 buildIngredientList()
 buildRecipeGrid()
 applyFilter()

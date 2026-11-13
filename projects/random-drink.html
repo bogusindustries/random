@@ -147,6 +147,18 @@
             cursor: pointer;
         }
 
+        #clearIngredients {
+            margin-bottom: 12px;
+            padding: 0.5em 1.2em;
+            font-size: 0.9em;
+            font-weight: 600;
+            background-color: #595959;
+            color: white;
+            border: 2px solid rgb(127, 127, 127);
+            border-radius: 9999px;
+            cursor: pointer;
+        }
+
         .extrasToggle input {
             width: 18px;
             height: 18px;
@@ -268,17 +280,17 @@
             <div class="alwaysOnMobileButtonsListDiv">
                 <ul class="alwaysOnMobileButtonsList">
                     <li><button class="navigationButton" id="homeButtonMobile">HOME</button></li>
-                    <li><button class="navigationButton" id="animationButtonMobile">PROJECTS</button></li>
-                    <li><button class="navigationButton" id="photographyButtonMobile">PHOTOGRAPHY</button></li>
+                    <!-- <li><button class="navigationButton" id="animationButtonMobile">PROJECTS</button></li>
+                    <li><button class="navigationButton" id="photographyButtonMobile">PHOTOGRAPHY</button></li> -->
                 </ul>
                 <button id="hamburgerButton">☰</button>
             </div>
 
             <div class="mobileButtonsListDiv">
                 <ul class="mobileButtonsList">
-                    <li><button class="navigationButton" id="blogButtonMobile">BLOG</button></li>
+                    <!-- <li><button class="navigationButton" id="blogButtonMobile">BLOG</button></li>
                     <li><button class="navigationButton" id="contactButtonMobile">CONTACT</button></li>
-                    <li><button class="navigationButton" id="aboutButtonMobile">ABOUT</button></li>
+                    <li><button class="navigationButton" id="aboutButtonMobile">ABOUT</button></li> -->
                 </ul>
             </div>
         </div>
@@ -290,6 +302,7 @@
                     <input type="checkbox" id="ignoreExtras" checked>
                     <span>Ignore garnishes, ice, water, etc.</span>
                 </label>
+                <button id="clearIngredients">Clear all</button>
                 <ul id="ingredientList"></ul>
             </section>
 
