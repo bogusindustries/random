@@ -448,4 +448,89 @@ export default [
             "5. Garnish with a few blackberries."
         ]
     },
+    {
+        name: "Espresso Martini",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassImage: "Martini",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients:[
+            {
+                name: "Vodka",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Espresso",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Coffee Liqueur",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Sweet Creamer",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg"
+            },
+        ],
+        garnishes: [
+            {
+                name: "Coffee Beans",
+                amount: " 2 - 3",
+                image: "images/tempIcon_01.jpg",
+            }
+        ],
+        instructions: [
+            "1. Brew espresso.",
+            "2. Add espresso, vodka, coffee liqueur, and cream into a cocktail shaker.",
+            "3. Stir. (Sorry, Mr. Bond)",
+            "4. Pour into a martini glass.",
+            "5. Add coffee beans to garnish."
+        ]
+    },
+    {
+        name: "Cinnamon Toast Crunch",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Lowball",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Cinnamon Whisky",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Cinnamon Rum Liqueur",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Vanilla Vodka",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Milk",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "several cubes",
+                image: "images/tempIcon_01.jpg",
+            }
+        ],
+        instructions: [
+            "1. Combine ingredients into a cocktail shaker.",
+            "2. Stir.",
+            "3. Add ice to a lowball glass.",
+            "4. Pour cocktail over ice."
+        ]
+    }
 ]
