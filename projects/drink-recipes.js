@@ -532,5 +532,182 @@ export default [
             "3. Add ice to a lowball glass.",
             "4. Pour cocktail over ice."
         ]
-    }
+    },
+    {
+        name: "Arnold's Apple Palmer",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Tall",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Vodka",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pimm's No. 1",
+                amount: "a few dashes",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Apple Infused Tea",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Lemonade",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Apple",
+                amount: "a few slices",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "cocktail shaker full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill a cocktail shaker with ice.",
+            "2. Combine vodka, Pimm's, tea, and lemonade into the shaker.",
+            "3. Shake well.",
+            "4. Strain into a chilled tall glass.",
+            "5. Garnish with apple slices."
+        ]
+    },
+    {
+        name: "The Saucy Apple",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Cocktail",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Apple Brandy",
+                amount: "1 3/4 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Amaretto",
+                amount: "3/4 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Apple Sauce",
+                amount: "1 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Cinnamon",
+                amount: "1 sprinkle",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "blender full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill a blender with ice.",
+            "2. Combine apple brandy, amaretto, and apple sauce into the blender.",
+            "3. Blend until smooth.",
+            "4. Pour into a chilled cocktail glass.",
+            "5. Garnish with a sprinkle of ground cinnamon."
+        ]
+    },
+    {
+        name: "Pumpkin Pie Spice",
+        description: "Cocktail Ingredient",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: null,
+        glassImage: null,
+        ingredients: [
+            {
+                name: "Cinnamon",
+                amount: "3 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Ginger",
+                amount: "2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Nutmeg",
+                amount: "2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Allspice",
+                amount: "1 1/2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Cloves",
+                amount: "1 1/2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Whisk spices together in a small bowl until well combined.",
+            "2. Store in an airtight container."
+        ]
+    },
+    {
+        name: "Pumpkin Spice Syrup",
+        description: "Cocktail Ingredient",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: null,
+        glassImage: null,
+        ingredients: [
+            {
+                name: "Brown Sugar",
+                amount: "1/2 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Puree",
+                amount: "1/2 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Pie Spice",
+                amount: "4 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Cinnamon Sticks",
+                amount: "2",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Water",
+                amount: "1 1/2 cups",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Whisk together all ingredients in a pot over low heat until all sugar has dissolved.",
+            "2. Do not allow the mixture to boil.",
+            "3. Heat the mixture for an additional 5 to 6 minutes.",
+            "4. Pour syrup through a mesh strainer.",
+            "5. Store in an airtight container.",
+            "6. Shake before use.",
+        ],
+    },
 ]
