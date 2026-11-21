@@ -710,4 +710,58 @@ export default [
             "6. Shake before use.",
         ],
     },
+    {
+        name: "Boozy Pumpkin Spice Latte",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Coffee Mug",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Bourbon",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Coffee",
+                amount: "6 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Milk",
+                amount: "1/8 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Spice Syrup",
+                amount: "3 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Whipped Cream",
+                amount: "for topping",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Cinnamon Sticks",
+                amount: "to Garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Cinnamon",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Add bourbon and pumpkin spice syrup into the coffee mug.",
+            "2. Stir or use frother to combine.",
+            "3. Heat milk over medium-low heat until it begins to simmer.",
+            "4. Remove from heat and add to coffee mug.",
+            "5. Add hot coffee to mug and stir to combine.",
+            "6. Garnish with whipped cream, cinnamon sticks and ground cinnamon.",
+        ]
+    },
 ]
