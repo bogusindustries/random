@@ -848,11 +848,6 @@ export default [
                 image: "images/tempIcon_01.jpg",
             },
             {
-                name: "Pumpkin Pie Spice",
-                amount: "1/2 tsp",
-                image: "images/tempIcon_01.jpg",
-            },
-            {
                 name: "Pumpkin Puree",
                 amount: "3 TBSP",
                 image: "images/tempIcon_01.jpg",
@@ -884,6 +879,51 @@ export default [
             "6. Stir before serving.",
             "7. Pour into 2 glasses.",
             "8. Garnish with ground nutmeg.",
+        ]
+    },
+    {
+        name: "Pumpkin Spice Martini",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Martini",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Vanilla Vodka",
+                amount: "1 1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Irish Cream Liqueur",
+                amount: "1 1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Spice Syrup",
+                amount: "1 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Cinnamon Stick",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "cocktail shaker full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill cocktail shacker with ice.",
+            "2. Add vodka, liqueur, and syrup.",
+            "3. Shake well.",
+            "4. Strain into martini glass.",
+            "8. Garnish with ground cinnamon stick.",
         ]
     },
 ]
