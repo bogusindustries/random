@@ -764,4 +764,60 @@ export default [
             "6. Garnish with whipped cream, cinnamon sticks and ground cinnamon.",
         ]
     },
+    {
+        name: "Pumpkin Spice Moscow Mule",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Cocktail",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Vanilla Vodka",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Spice Syrup",
+                amount: "2 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Lime Juice",
+                amount: "1 splash",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Ginger Beer",
+                amount: "to top",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Pumpkin Pie Spice",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "cocktail glass full",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Crushed Ice",
+                amount: "cocktail shaker full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill a cocktail shaker with crushed ice.",
+            "2. Combine vodka, pumpkin spice syrup, and lime juice.",
+            "3. Stir.",
+            "4. Pour into a chilled cocktail glass filled with ice.",
+            "5. Top with ginger beer.",
+            "6. Garnish with ground pumpkin pie spice.",
+        ]
+    },
 ]
