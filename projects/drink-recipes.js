@@ -820,4 +820,70 @@ export default [
             "6. Garnish with ground pumpkin pie spice.",
         ]
     },
+    {
+        name: "Drunken Pumpkin Eggnog",
+        description: "Serves 2",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Cocktail",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Dark Rum",
+                amount: "4 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Eggs",
+                amount: "2",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Sugar",
+                amount: "1/2 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Pie Spice",
+                amount: "1/2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Pie Spice",
+                amount: "1/2 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Puree",
+                amount: "3 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Milk",
+                amount: "3/4 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Heavy Cream",
+                amount: "3/4 cup",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Nutmeg",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. In a blender, blend eggs on medium speed for 1 minute.",
+            "2. Add sugar and blend for another 1 minute.",
+            "3. Add rum (or brandy), pumpkin pie spice, pumpkin puree, milk, and cream.",
+            "4. Blend until combined.",
+            "5. Place in refrigerator to chill.",
+            "6. Stir before serving.",
+            "7. Pour into 2 glasses.",
+            "8. Garnish with ground nutmeg.",
+        ]
+    },
 ]
