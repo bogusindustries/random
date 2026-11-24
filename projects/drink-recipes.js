@@ -923,7 +923,62 @@ export default [
             "2. Add vodka, liqueur, and syrup.",
             "3. Shake well.",
             "4. Strain into martini glass.",
-            "8. Garnish with ground cinnamon stick.",
+            "8. Garnish with cinnamon stick.",
+        ]
+    },
+    {
+        name: "Pumpkin Spice Old Fashioned",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Lowball",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Bourbon",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Puree",
+                amount: "1 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Pie Spice",
+                amount: "1/4 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Vanilla",
+                amount: "1/4 tsp",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Bitters",
+                amount: "1 dash",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Cinnamon Stick",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "cocktail shaker full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill cocktail shacker with ice.",
+            "2. Add all ingredients.",
+            "3. Shake well.",
+            "4. Strain into a lowball glass filled with ice.",
+            "8. Garnish with cinnamon stick.",
         ]
     },
 ]
