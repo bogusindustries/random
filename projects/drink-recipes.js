@@ -923,7 +923,7 @@ export default [
             "2. Add vodka, liqueur, and syrup.",
             "3. Shake well.",
             "4. Strain into martini glass.",
-            "8. Garnish with cinnamon stick.",
+            "5. Garnish with cinnamon stick.",
         ]
     },
     {
@@ -978,7 +978,7 @@ export default [
             "2. Add all ingredients.",
             "3. Shake well.",
             "4. Strain into a lowball glass filled with ice.",
-            "8. Garnish with cinnamon stick.",
+            "5. Garnish with cinnamon stick.",
         ]
     },
 ]
