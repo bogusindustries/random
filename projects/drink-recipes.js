@@ -981,4 +981,65 @@ export default [
             "5. Garnish with cinnamon stick.",
         ]
     },
+    {
+        name: "Spiced Pumpkin Smash",
+        description: "Serves 1",
+        coverImage: "images/comingSoon_HD.jpg",
+        glassType: "Lowball",
+        glassImage: "images/tempIcon_01.jpg",
+        ingredients: [
+            {
+                name: "Whiskey",
+                amount: "2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Pumpkin Spice Syrup",
+                amount: "2 - 4 TBSP",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Orange Juice",
+                amount: "1/2 oz",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Orange Bitters",
+                amount: "1 - 2 dashes",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Ginger Beer",
+                amount: "to top",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        garnishes: [
+            {
+                name: "Cinnamon Stick",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            },
+            {
+                name: "Orange Peel",
+                amount: "to garnish",
+                image: "images/tempIcon_01.jpg",
+            }
+        ],
+        alwaysHave: [
+            {
+                name: "Ice",
+                amount: "cocktail shaker full",
+                image: "images/tempIcon_01.jpg",
+            },
+        ],
+        instructions: [
+            "1. Fill cocktail shacker with ice.",
+            "2. Add whiskey, pumpkin spice syrup, orange juice, and bitters.",
+            "3. Shake well.",
+            "4. Strain into a lowball glass.",
+            "5. Top with ginger beer.",
+            "5. Garnish with cinnamon stick and ornage peel.",
+        ]
+    },
 ]
